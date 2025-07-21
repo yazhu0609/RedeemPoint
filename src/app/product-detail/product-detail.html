@@ -1,0 +1,40 @@
+<div class="container" *ngIf="product">
+
+  <div class="header-wrapper">
+        <div class="header">RedeemPoints</div>
+    </div>
+        <h4 class="title">點數兌換</h4>
+
+  <div class="product-card">
+    <img [src]="product.imgUrl || 'assets/no-image.png'" />
+    <p class="product-title">{{ product.productName }}</p>
+    <div class="points">{{ product.points }} 點</div>
+    <p [innerHTML]="product.productDesc"></p>
+    <p>庫存：{{ product.stock }}</p>
+    <p *ngIf="product.hasPurchaseLimit">限購數量：{{ product.purchaseLimit }}</p>
+
+    <div class="quantity">
+    <button 
+        (click)="changeQty(-1)" 
+        [disabled]="quantity <= 1"
+        [class.disabled]="quantity <= 1">
+        -
+    </button>
+
+    <span class="qty-display">{{ quantity }}</span>
+
+    <button 
+        (click)="changeQty(1)" 
+        [disabled]="quantity >= maxStock"
+        [class.disabled]="quantity >= maxStock">
+        +
+    </button>
+    </div>
+
+    <button (click)="redeem()" class="btn-cost">立即兌換</button>
+
+    <!--<p>目前剩餘點數：<strong>{{ userPoints }}</strong> 點</p>-->
+    <br/>
+    <a routerLink="/" class="go-back">回商品列表</a>
+  </div>
+</div>
