@@ -1,5 +1,10 @@
+:host {
+  font-family: "Times New Roman", Times, serif;
+}
+
 .container {
   width: 375px;
+  height: 667px;
   margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -90,7 +95,6 @@
     color: white;
     border: none;
     border-radius: 999px;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -105,3 +109,5 @@
 .go-back{
     color:#798082;
 }
+
+

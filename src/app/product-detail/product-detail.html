@@ -11,7 +11,7 @@
     <div class="points">{{ product.points }} 點</div>
     <p [innerHTML]="product.productDesc"></p>
     <p>庫存：{{ product.stock }}</p>
-    <p *ngIf="product.hasPurchaseLimit">限購數量：{{ product.purchaseLimit }}</p>
+    <p *ngIf="product.hasPurchaseLimit">購換數量：{{ product.purchaseLimit }}</p>
 
     <div class="quantity">
     <button 
