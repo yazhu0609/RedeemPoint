@@ -6,12 +6,12 @@
         <h4 class="title">點數兌換</h4>
 
   <div class="product-card">
-    <img [src]="product.imgUrl || 'assets/no-image.png'" />
+    <img [src]="product.imgUrl" />
     <p class="product-title">{{ product.productName }}</p>
     <div class="points">{{ product.points }} 點</div>
-    <p [innerHTML]="product.productDesc"></p>
+    <p class="product-desc" [innerHTML]="product.productDesc"></p>
     <p>庫存：{{ product.stock }}</p>
-    <p *ngIf="product.hasPurchaseLimit">購換數量：{{ product.purchaseLimit }}</p>
+    <p *ngIf="product.hasPurchaseLimit">兌換數量：{{ product.purchaseLimit }}</p>
 
     <div class="quantity">
     <button 
@@ -19,7 +19,7 @@
         [disabled]="quantity <= 1"
         [class.disabled]="quantity <= 1">
         -
-    </button>
+    </button><!-- [disabled] 數量小於等於1，停用按鈕，且class換成.disabled-->
 
     <span class="qty-display">{{ quantity }}</span>
 
@@ -29,7 +29,7 @@
         [class.disabled]="quantity >= maxStock">
         +
     </button>
-    </div>
+    </div><!-- [disabled] 達庫存上限，停用按鈕，且class換成.disabled-->
 
     <button (click)="redeem()" class="btn-cost">立即兌換</button>
 

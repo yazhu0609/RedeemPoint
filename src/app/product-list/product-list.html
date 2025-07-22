@@ -9,7 +9,7 @@
 
   <div class="product-grid" *ngIf="!loading && !error && products.length">
     <div class="product-card" *ngFor="let item of products">
-      <img [src]="item.imgUrl || 'assets/no-image.png'" (error)="item.imgUrl = 'assets/no-image.png'" />
+      <img [src]="item.imgUrl" />
       <div class="productName">{{ item.productName || '無商品名稱' }}</div>
       <div class="points">{{ item.points }} 點</div>
       <a class="btn" [routerLink]="['/product', item.productId]">我要兌換</a>
@@ -18,3 +18,5 @@
 
   <div *ngIf="!loading && !error && products.length === 0">目前沒有可兌換的商品。</div>
 </div>
+
+<!--[routerLink] 導頁指令-->
